@@ -1,0 +1,57 @@
+{
+  "id": "/",
+  "name": "صوتي",
+  "short_name": "صوتي",
+  "description": "تطبيق الترجمة الفورية وتسجيل الصوت",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#18191a",
+  "theme_color": "#1a73e8",
+  "orientation": "portrait",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["utilities", "productivity"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-narrow.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "واجهة تطبيق صوتي"
+    },
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "واجهة تطبيق صوتي الموسعة"
+    }
+  ]
+}
