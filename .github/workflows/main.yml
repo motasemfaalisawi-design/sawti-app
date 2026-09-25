@@ -31,9 +31,11 @@ jobs:
         run: |
           npm run build
 
-      - name: Add Capacitor Android
+      - name: Add Capacitor Android and Configure Permissions
         run: |
           npx cap add android || true
+          # Inject full Android permissions for Audio & Microphone & Network
+          sed -i '/<\/manifest>/i \    <uses-permission android:name="android.permission.RECORD_AUDIO" />\n    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />\n    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />' android/app/src/main/AndroidManifest.xml || true
           npx cap sync android
 
       - name: Build Debug APK
@@ -45,5 +47,5 @@ jobs:
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sawti-app-apk
+          name: sawti-stable-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
