@@ -1,0 +1,8 @@
+{
+  "name": "صوتي - مسجل ومحرر الصوت الاحترافي",
+  "description": "تطبيق متكامل لتسجيل الصوت عالي الجودة، تفريغ صوتي وترجمة فورية بين العربية والإنجليزية، تحرير وقص الصوت، وتأثيرات استوديو.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
