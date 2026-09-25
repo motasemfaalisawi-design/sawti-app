@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -15,36 +15,38 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Setup Java JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
+          distribution: 'temurin'
           java-version: '17'
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
       - name: Install dependencies
-        run: npm ci || npm install
+        run: |
+          npm install --legacy-peer-deps
 
       - name: Build Web App
-        run: npm run build
+        run: |
+          npm run build
 
-      - name: Setup Capacitor Android
+      - name: Add Capacitor Android
         run: |
           npx cap add android || true
           npx cap sync android
 
-      - name: Build APK with Gradle
+      - name: Build Debug APK
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --no-daemon
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sawti-translator-app-apk
+          name: sawti-app-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
